@@ -10,30 +10,74 @@
 <body>
   <div class="note-page">
     <header class="top-bar">
-      <h1 class="logo">SpeechPT</h1>
+      <img src="./assets/logo.png" alt="SpeechPT" class="logo-img" />
 
       <nav class="top-menu">
-        <a href="#">로그인</a>
+        <a href="#" id="loginMenuLink">로그인</a>
+        <button id="logoutButton" class="is-hidden">로그아웃</button>
         <a href="#">고객센터</a>
         <button>다운로드</button>
       </nav>
     </header>
 
     <section class="notice-bar">
-      <p>노트 목록을 불러오는 중입니다.</p>
+      <p>ver 0.0.1 테스트중</p>
     </section>
 
-    <section class="view-toggle">
-      <button type="button">격자</button>
-      <button type="button">리스트</button>
-    </section>
+    <section class="landing-shell" id="guestHomeSection">
+      <div class="landing-hero">
+        <div class="landing-copy">
+          <p class="landing-eyebrow">SpeechPT Presentation Studio</p>
+          <h1>발표 자료와 음성을 함께 분석하는 개인 발표 워크스페이스</h1>
+          <p class="landing-description">
+            슬라이드와 발표 음성을 업로드하면, 발표 흐름과 전달 안정성, 핵심 개선 포인트를 한 곳에서 정리할 수 있습니다.
+          </p>
+          <div class="landing-actions">
+            <button type="button" id="heroLoginButton" class="landing-primary-button">로그인하고 시작하기</button>
+            <button type="button" id="heroGoogleButton" class="landing-secondary-button">Gmail로 계속하기</button>
+          </div>
+        </div>
 
-    <main class="note-grid" id="noteGrid">
-      <div class="note-card add-card" id="createNoteCard">
-        <div class="plus-icon">+</div>
-        <div class="note-label">새 노트 추가</div>
+        <div class="landing-preview-card">
+          <div class="landing-preview-chip">AI Feedback Workspace</div>
+          <div class="landing-preview-window">
+            <div class="preview-pane preview-pane-left">
+              <div class="preview-slide"></div>
+              <div class="preview-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="preview-pane preview-pane-right">
+              <div class="preview-badge-row">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="preview-card-list">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </main>
+    </section>
+
+    <section class="workspace-shell is-hidden" id="memberWorkspaceSection">
+      <section class="view-toggle">
+        <button type="button">격자</button>
+        <button type="button">리스트</button>
+      </section>
+
+      <main class="note-grid" id="noteGrid">
+        <div class="note-card add-card" id="createNoteCard">
+          <div class="plus-icon">+</div>
+          <div class="note-label">새 노트 추가</div>
+        </div>
+      </main>
+    </section>
   </div>
 
   <!-- 로그인 모달 -->
@@ -53,6 +97,33 @@
       </div>
 
       <p class="signup-text">Sign Up</p>
+    </div>
+  </div>
+
+  <!-- 노트 생성 모달 -->
+  <div class="modal-backdrop" id="createNoteModalBackdrop">
+    <div class="modal-content create-note-modal">
+      <button class="modal-close-button" id="closeCreateNoteModalButton">×</button>
+      <h1>새 노트 만들기</h1>
+      <p>제목을 입력하고 확인을 눌러주세요. 설명은 선택 사항입니다.</p>
+      <input type="text" id="createNoteTitleInput" placeholder="새 노트 제목을 입력하세요." />
+      <textarea id="createNoteDescriptionInput" placeholder="노트 설명을 입력하세요. (선택)" rows="4"></textarea>
+      <div class="modal-actions">
+        <button type="button" id="cancelCreateNoteButton">취소</button>
+        <button type="button" id="confirmCreateNoteButton">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 로그아웃 확인 모달 -->
+  <div class="modal-backdrop" id="logoutConfirmModalBackdrop">
+    <div class="modal-content logout-confirm-modal">
+      <h1>로그아웃 확인</h1>
+      <p>정말 로그아웃 하시겠습니까?</p>
+      <div class="modal-actions">
+        <button type="button" id="cancelLogoutButton">취소</button>
+        <button type="button" id="confirmLogoutButton">로그아웃</button>
+      </div>
     </div>
   </div>
 
